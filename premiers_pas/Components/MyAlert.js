@@ -4,9 +4,5 @@ const MyAlert = () => {
     Alert.alert(
         'this is my alert'
     )
-
-    return (
-        <></>
-    )
 }
 export default MyAlert
