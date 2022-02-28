@@ -1,7 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity } from 'react-native';
+import MyAlert from './Components/MyAlert';
 
 export default function App() {
+
+
+
   return (
     <ScrollView >
 
@@ -19,6 +23,8 @@ export default function App() {
           <Image source={require("./assets/adaptive-icon.png")}
             style={{ width: 100, height: 100 }} />
         </View>
+
+        <TouchableOpacity onPress={MyAlert} style={styles.button}><Text>Press Me!</Text></TouchableOpacity>
 
       </View>
 
@@ -53,7 +59,15 @@ const styles = StyleSheet.create({
   textP: {
     marginVertical:80,
     fontWeight: "bold"
-  }
+  },
+
+  button: {
+    backgroundColor: '#4ba37b',
+    width: 100,
+    borderRadius: 50,
+    alignItems: 'center',
+    marginTop: 100
+}
 
 
 
