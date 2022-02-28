@@ -1,13 +1,60 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 export default function App() {
   return (
-    <View>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView >
+
+      <View style={styles.mainView} >
+
+        <View style={styles.container}>
+          <Text style={styles.titleH1}>Hello World</Text>
+          <Text style={styles.titleH2}>We are In React Native!</Text>
+          <Text style={styles.textP}>I can see this on my phone!</Text>
+        </View>
+
+        <View>
+          <Image source={{ uri: "https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png" }}
+            style={{ width: 100, height: 100 }} />
+          <Image source={require("./assets/adaptive-icon.png")}
+            style={{ width: 100, height: 100 }} />
+        </View>
+
+      </View>
+
+
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  mainView: {
+    flex: 1,
+    backgroundColor: "blue",
+    alignItems: 'center',
+    justifyContent: "center"
+
+  },
+
+  container: {
+    backgroundColor: 'white'
+  },
+
+  titleH1: {
+    marginVertical:80,
+    fontSize: 30,
+  },
+
+  titleH2: {
+    marginVertical:80,
+    textAlign: 'center',
+  },
+
+  textP: {
+    marginVertical:80,
+    fontWeight: "bold"
+  }
+
+
+
 });
