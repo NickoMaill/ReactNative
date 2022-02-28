@@ -1,4 +1,4 @@
-import { Alert, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Alert } from 'react-native'
 
 const MyAlert = () => {
     Alert.alert(
