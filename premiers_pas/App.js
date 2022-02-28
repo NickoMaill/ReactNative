@@ -1,13 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
-import MyAlert from './Components/MyAlert';
+import { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
+
 
 export default function App() {
 
-  // const [showLoading, ]
+  const [showLoading, setShowLoading] = useState(false)
 
+  const MyAlert = () => {
+    
+    Alert.alert(
+      'this is my alert',
+      setShowLoading(true),
+      
+      )
+  }
 
   return (
+
+
     <ScrollView >
 
       <View style={styles.mainView} >
@@ -26,12 +46,12 @@ export default function App() {
         </View>
 
         <TouchableOpacity onPress={MyAlert} style={styles.button}><Text>Press Me!</Text></TouchableOpacity>
-        <ActivityIndicator style={styles.indicator} size="large" color="#00ff00" />
-
+        {showLoading && <ActivityIndicator style={styles.indicator} size="large" />}
       </View>
 
 
     </ScrollView>
+
   );
 }
 
@@ -72,8 +92,9 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
 
-  indicator:{
-    marginBottom:20
+  indicator: {
+    color: "#fff",
+    marginBottom: 20
   }
 
 
