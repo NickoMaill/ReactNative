@@ -21,11 +21,12 @@ export default function App() {
                 renderItem={(data) =>
                     <Card
                     name={data.item.name.common}
-                    capital={data.item.capital}/>
+                    capital={data.item.capital}
+                    flag={data.item.flags.png}/>
                 }
                 keyExtractor={(data, i) => i.toString()}
-                ListHeaderComponent={() => <Text>Header</Text>}
-                ListFooterComponent={() => <Text>Footer</Text>}
+                ListHeaderComponent={() => <Text>Welcome To The Giga Country list!</Text>}
+                ListFooterComponent={() => <Text>Oups univers is infinite but not this list...</Text>}
                 ItemSeparatorComponent={() => (
                     <View style={{ borderBottomWidth: 1 }}></View>
                 )}
