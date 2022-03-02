@@ -2,7 +2,6 @@ import { useState } from "react";
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 
 export default function Home() {
-  const [toggle, setToogle] = useState(false);
 
   const submitForm = () => {
 
