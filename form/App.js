@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, Switch, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 
 export default function Home() {
   const [toggle, setToogle] = useState(false);
@@ -11,13 +11,9 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text
-        style={{
-          textAlign: "center",
-          fontSize: 40,
-          fontWeight: "bold",
-        }}
+        style={styles.text}
       >
-        Home
+        ACCUEIL
       </Text>
 
       <TouchableOpacity onPress={() => navigate("/about")}>
@@ -25,7 +21,7 @@ export default function Home() {
       </TouchableOpacity>
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Email / Pseudo"
       />
       <TextInput
         style={styles.input}
@@ -56,9 +52,15 @@ const styles = StyleSheet.create({
   },
 
   submit: {
-    borderWidth : 1,
-    borderRadius:10,
+    borderWidth: 1,
+    borderRadius: 10,
     padding: 5,
     margin: 20,
+  },
+
+  text: {
+    textAlign: "center",
+    fontSize: 40,
+    fontWeight: "bold",
   }
 })
