@@ -7,7 +7,7 @@ export default function CountryCard(props) {
                 Name : {props.name}
             </Text>
             <Text>Capital : {props.capital}</Text>
-            <Image source={{ uri: props.flag }} style={{ width: 200, height: 100 }}></Image>
+            <Image source={{ uri: props.flag }} style={{ width: 300, height: 200 }}></Image>
         </View>
     );
 }

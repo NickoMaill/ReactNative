@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+
 import { useState } from 'react';
 import {
   StyleSheet,
@@ -17,12 +18,21 @@ export default function App() {
   const [showLoading, setShowLoading] = useState(false)
 
   const MyAlert = () => {
-    
+
     Alert.alert(
       'this is my alert',
       setShowLoading(true),
-      
-      )
+      [
+        {
+          text: "Ok",
+          onPress: () => setShowLoading(false)
+        },
+        {
+          text: "Cancel", onPress:() => setShowLoading(false)
+        }
+      ]
+
+    )
   }
 
   return (
@@ -40,7 +50,7 @@ export default function App() {
 
         <View>
           <Image source={{ uri: "https://www.konexio.eu/uploads/1/2/0/2/120245745/konexio-logo_1.png" }}
-            style={{ width: 100, height: 100 }} />
+            style={{ width: 300, height: 100 }} />
           <Image source={require("./assets/adaptive-icon.png")}
             style={{ width: 100, height: 100 }} />
         </View>
