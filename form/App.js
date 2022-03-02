@@ -3,9 +3,11 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-nativ
 
 export default function Home() {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [isLogged, setIsLogged] = useState(false)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
+  const [correctMailLength, setCorrectMailLength] = useState(true);
+  const [correctPasswordLength, setCorrectPasswordLength] = useState(true);
 
   useEffect(() => {
     console.log(email.length);
@@ -13,12 +15,23 @@ export default function Home() {
 
   const submitForm = () => {
     if (email.length >= 6 && password.length >= 6) {
-      setIsLogged(true)
+      setIsLogged(true);
+      setCorrectMailLength(true);
+      setCorrectPasswordLength(true)
+    } else if (email.length < 6 && password.length < 6) {
+      setCorrectMailLength(false)
+      setCorrectPasswordLength(false)
+    } else if (email.length < 6) {
+      setCorrectMailLength(false)
+    } else if (password.length < 6) {
+      setCorrectPasswordLength(false)
     }
   }
 
-  const deconnectUser = () => {
+  const logoutUser = () => {
     setIsLogged(false)
+    setCorrectMailLength(true)
+    setCorrectPasswordLength(true)
   }
 
   if (isLogged !== false) {
@@ -30,7 +43,7 @@ export default function Home() {
 
         <Text>Vous êtes actuellement connecté</Text>
 
-        <TouchableOpacity style={styles.submit} onPress={deconnectUser}>
+        <TouchableOpacity style={styles.submit} onPress={logoutUser}>
           <Text>Se Déconnecter</Text>
         </TouchableOpacity>
 
@@ -51,6 +64,7 @@ export default function Home() {
         placeholder="Email / Pseudo"
         onChange={(e) => setEmail(e.target.value)}
       />
+      {!correctMailLength && <Text>Votre email doit contenir 6 caractères minimum</Text>}
 
       <TextInput
         style={styles.input}
@@ -58,6 +72,7 @@ export default function Home() {
         secureTextEntry
         onChange={(e) => setPassword(e.target.value)}
       />
+      {!correctPasswordLength && <Text>Votre mot de passe doit contenir 6 caractères minimum</Text>}
 
       <TouchableOpacity style={styles.submit} onPress={submitForm}>
         <Text>Se Connecter</Text>
